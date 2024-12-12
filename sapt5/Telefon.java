@@ -13,6 +13,10 @@ public class Telefon {
         return this.nume;
     }
 
+    public String[] getAgenda() {
+        return Arrays.copyOf(this.agenda,counter);
+    }
+
     public boolean apeleaza(Telefon src) {
         if(src.counter >= 100) return false;
         src.agenda[src.counter++] = this.nume;

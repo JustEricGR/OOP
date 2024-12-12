@@ -36,18 +36,36 @@ public class Main {
         System.out.print("Cate apeluri sa se efectueze:");
         int nrApeluri = scan.nextInt();
 
-        for(int i=0;i<size;i++) {
-            for(int j=0;j<nrApeluri;j++) {
-                if(telefoane[i].apeleaza(telefoane[(int)(Math.random()*size)]))continue;
+
+        for(int i=0;i<nrApeluri;i++) {
+            int index1=0,index2=0;
+            while(true) {
+                index1 = (int)(Math.random()*size);
+                index2 = (int)(Math.random()*size);
+                if(index1 == index2)continue;
                 break;
             }
+            
+            if(telefoane[index1].apeleaza(telefoane[index2]))continue;
+            break;
         }
          
         for(int i=0;i<size;i++) {
             System.out.println(telefoane[i]);
         }
        
+        numaratoare(telefoane, size);
 
         scan.close();
+    }
+
+    public static void numaratoare(Telefon[] telefoane, int size) {
+        for(int i=0;i<size;i++) {
+            System.out.println(telefoane[i].getNume() + " apeleaza pe:");
+            for(int j=0;j<telefoane[i].getAgenda().length;j++) {
+                Integer nrapeluri = telefoane[i].numarDeApeluri(telefoane[j].getNume());
+                System.out.println("pe " + telefoane[j].getNume() + " de " + nrapeluri + " ori;");
+            }
+        }
     }
 }
