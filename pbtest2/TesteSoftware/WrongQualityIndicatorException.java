@@ -1,4 +1,4 @@
-public class WrongQualityIndicatorException extends Exception {
+public class WrongQualityIndicatorException extends RuntimeException {
     
     public WrongQualityIndicatorException(String mes) {
         super(mes);

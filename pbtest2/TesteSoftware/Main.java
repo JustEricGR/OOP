@@ -14,6 +14,8 @@ public class Main {
         
 
         suita.addNewComponentTest("Component2", 0, 7);
+
+        suita.addNewComponentTest(null, 0, 0);
         
 
         System.out.println(suita);
